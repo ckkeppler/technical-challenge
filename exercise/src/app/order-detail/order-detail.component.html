@@ -1,0 +1,26 @@
+<td>{{ order.order_id }}</td>
+<td>{{ order.customer_id }}</td>
+<td>{{ order.customer_first_name }}</td>
+<td>{{ order.customer_last_name }}</td>
+<td class="expand" (click)="toggleAddress()">
+  <mat-icon>{{ openedAddress ? "expand_less" : "expand_more" }}</mat-icon>
+  <div class="detail" *ngIf="openedAddress">
+    <div
+      *ngFor="let item of order.customer_address | keyvalue: keepOriginalOrder"
+    >
+      {{ item.value }}
+    </div>
+  </div>
+</td>
+<td>${{ order.order_amount }}</td>
+<td>{{ order.order_date | date: "shortDate" }}</td>
+<td class="expand" (click)="toggleItems()">
+  <mat-icon>{{ openedItems ? "expand_less" : "expand_more" }}</mat-icon>
+  <div *ngIf="openedItems">
+    <div class="detail" *ngFor="let item of order.order_items">
+      <div *ngFor="let detail of item | keyvalue: keepOriginalOrder">
+        {{ detail.key }} -- {{ detail.value }}
+      </div>
+    </div>
+  </div>
+</td>

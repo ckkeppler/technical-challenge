@@ -1,0 +1,23 @@
+<div class="container">
+  <pagination-controls
+    class="pagination"
+    (pageChange)="p = $event"
+  ></pagination-controls>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" *ngFor="let header of headers">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        order-detail
+        class="order-detail"
+        *ngFor="
+          let order of data | paginate: { itemsPerPage: 5, currentPage: p }
+        "
+        [order]="order"
+      ></tr>
+    </tbody>
+  </table>
+</div>

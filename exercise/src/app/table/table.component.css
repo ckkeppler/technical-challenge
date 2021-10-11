@@ -1,0 +1,22 @@
+.table {
+  table-layout: fixed;
+  border: 1px solid rgba(128, 128, 128, 0.7);
+  background: rgba(128, 128, 128, 0.05);
+  width: 100%;
+  font-size: 0.75em;
+  overflow-y: hidden;
+}
+
+.pagination {
+  font-size: 0.65em;
+  margin: auto;
+}
+
+.pagination ::ng-deep .ngx-pagination {
+  margin: 0;
+  padding: 0;
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: gray;
+}
